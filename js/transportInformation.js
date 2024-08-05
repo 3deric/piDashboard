@@ -94,22 +94,23 @@ function updateDepartures(newData){
 function updateViewport(){
 	if(data != null){
 		console.log(new Date())
-    		for (let i = 0; i < departures; i++){
-    			const currentDate = new Date();
-    			const date = new Date(parseInt(data.Departures[i].ScheduledTime.substr(6)));
-    			const diff = Math.abs(date - currentDate);
-    			const minutes = Math.floor((diff/1000)/60);
-    			const dir = data.Departures[i].Direction;
-    			const state = data.Departures[i].State;
-    			const line = data.Departures[i].LineName;
-    			document.getElementById(i+"_line").innerText  = line + " " + dir;
-    			//document.getElementById(i+"_dir").innerText  = dir;
-    			document.getElementById(i+"_schd").innerText  = getTime(date);
-    			document.getElementById(i+"_delta").innerText  = "in " + minutes + " Min";
-    			document.getElementById(i+"_state").innerText  = getState(state);
-    			//document.getElementById(i).innerText =getTime(date)+" : "+dir + " " +minutes + " " + state
-    		}
+		document.getElementById("clock").innerText  = getTime(new Date);
+    	for (let i = 0; i < departures; i++){
+    		const currentDate = new Date();
+    		const date = new Date(parseInt(data.Departures[i].ScheduledTime.substr(6)));
+    		const diff = Math.abs(date - currentDate);
+    		const minutes = Math.floor((diff/1000)/60);
+    		const dir = data.Departures[i].Direction;
+    		const state = data.Departures[i].State;
+    		const line = data.Departures[i].LineName;
+    		document.getElementById(i+"_line").innerText  = line + " " + dir;
+    		//document.getElementById(i+"_dir").innerText  = dir;
+    		document.getElementById(i+"_schd").innerText  = getTime(date);
+    		document.getElementById(i+"_delta").innerText  = "in " + minutes + " Min";
+    		document.getElementById(i+"_state").innerText  = getState(state);
+    		//document.getElementById(i).innerText =getTime(date)+" : "+dir + " " +minutes + " " + state
     	}
+    }
 
    	setTimeout(updateViewport, 10000);
 }
