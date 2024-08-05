@@ -1,14 +1,78 @@
 body {
-  //background-image: url("/img/court-church-5823672_1280.jpg");
+  background-image: url("/img/court-church-5823672_1280.jpg");
+  background-repeat: no-repeat;
+  height: 480px;
+  width: 800px;
+}
+
+.weatherContainer {
+  width: 300px;
+  height: 480px;
+  position: absolute;
+  left: 0px;
+}
+
+
+.departureContainer {
+  width: 500px;
+  height: 480px;
+  position: absolute;
+  left: 300px;
 }
 
 .departure {
-  background-color: rgba(255, 255, 255);  
-  border-radius: 10px;
-  padding: 20px;
-  margin: 20px;
-  height: 100px;
-  width: 300px;
-  opacity: 90%;
-  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
+  border-bottom: 1px solid red;
+  margin-bottom: -1px;
+  background-color: rgba(200, 200, 200);  
+  padding: 0px;
+  margin:0px;
+  border-radius: 0px;
+  position: relative;
+  height:48px;
+  font-family: sans-serif;
+  font-size: 1.0em;
+  line-height: 0em;
 }
+
+.clock{
+  margin: auto;
+  width: 50%;
+  text-align: justify;
+  font-size: 4.0em;
+  font-weight:bold;
+  font-family: sans-serif;
+}
+
+.line {
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  left: 4px;
+  font-weight:bold;
+}
+
+.schedule {
+  position: absolute;
+  text-align: right;
+  bottom: 0px;
+  right: 4px;
+  font-size: 0.8em;
+}
+
+.delta {
+  position: absolute;
+  text-align: right;
+  top: 0px;
+  right: 4px;
+  font-weight:bold;
+}
+
+.state {
+  position: absolute;
+  text-align: left;
+  bottom: 0px;
+  left: 4px;
+  font-size: 0.8em;
+}
+
+
