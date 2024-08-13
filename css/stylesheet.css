@@ -3,6 +3,8 @@ body {
   background-repeat: no-repeat;
   height: 480px;
   width: 800px;
+  overflow: hidden;
+  margin:0px;
 }
 
 .weatherContainer {
@@ -18,6 +20,7 @@ body {
   height: 480px;
   position: absolute;
   left: 300px;
+  margin: 0px;
 }
 
 .departure {
@@ -35,9 +38,27 @@ body {
 
 .clock{
   margin: auto;
-  width: 50%;
-  text-align: justify;
+  width: 100%;
+  text-align: center;
   font-size: 4.0em;
+  font-weight:bold;
+  font-family: sans-serif;
+}
+
+.temperature{
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  font-size: 3.0em;
+  font-weight:bold;
+  font-family: sans-serif;
+}
+
+.weatherDetail{
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  font-size: 1.0em;
   font-weight:bold;
   font-family: sans-serif;
 }
