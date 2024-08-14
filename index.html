@@ -11,13 +11,15 @@
 </head>
  
 <body>
-	<div id="divbody">
+	<div class ="wrapper">
 	  <div id = "clockContainer" class = "clockContainer">
 	  	<p id = "clock" class = "clock">time</p>
 	  </div>
 	  <div id = "weatherContainer" class = "weatherContainer">
-	    <p id = "temperature" class = "temperature">temp</p>
-	    <img src='' id='weatherImg' name='weatherImg' class= 'weatherImg'>
+	    <div id = "tempImage" class = "weatherTempImage">
+	      <p id = "temperature" class = "temperature">temp</p>
+	      <img src='http://openweathermap.org/img/wn/02d@2x.png' id='weatherImg' name='weatherImg' class= 'weatherImg'>
+	    </div>
 	    <p id = "temperatureMinMax" class = "weatherDetail">temp min max</p>
 	    <p id = "humidity" class = "weatherDetail">humidity</p>
 	  </div>
