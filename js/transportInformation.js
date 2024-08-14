@@ -91,7 +91,8 @@ function updateDepartures(newData){
 }
 
 //updates the viewport every 10 seconds
-function updateViewport(){
+function updateTransportViewport(){
+    console.log("updating viewport")
 	if(data != null){
 		console.log(new Date())
 		document.getElementById("clock").innerText  = getTime(new Date);
@@ -104,15 +105,12 @@ function updateViewport(){
     		const state = data.Departures[i].State;
     		const line = data.Departures[i].LineName;
     		document.getElementById(i+"_line").innerText  = line + " " + dir;
-    		//document.getElementById(i+"_dir").innerText  = dir;
     		document.getElementById(i+"_schd").innerText  = getTime(date);
     		document.getElementById(i+"_delta").innerText  = "in " + minutes + " Min";
     		document.getElementById(i+"_state").innerText  = getState(state);
-    		//document.getElementById(i).innerText =getTime(date)+" : "+dir + " " +minutes + " " + state
     	}
     }
-
-   	setTimeout(updateViewport, 10000);
+   	setTimeout(updateTransportViewport, 10000);
 }
 
 function getTime(time) {
@@ -135,7 +133,7 @@ function getState(state)
 }
 
 
-updateViewport();
+updateTransportViewport();
 updateStation();
 
 //console.log(data)

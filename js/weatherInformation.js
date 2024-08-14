@@ -29,7 +29,7 @@ function updateWeatherIcons(newData){
 
 
 //updates the viewport every 10 seconds
-function updateViewport(){
+function updateWeatherViewport(){
 	if(data != null){
 		var image = null
 		if(weatherData.current.is_day == 1){image = weatherIcons[weatherData.current.weather_code].day.image;} else {image = weatherIcons[weatherData.current.weather_code].night.image;}
@@ -39,12 +39,12 @@ function updateViewport(){
 		document.getElementById("humidity").innerText  = weatherData.current.relative_humidity_2m + " % Luftfeuchtigkeit";
     }
 
-   	setTimeout(updateViewport, 10000);
+   	setTimeout(updateWeatherViewport, 10000);
 }
 
 loadWeatherIcons()
 updateWeather()
-updateViewport()
+updateWeatherViewport()
 
 function weatherCondition(wmoCode){
     let condition = null
