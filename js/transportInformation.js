@@ -1,5 +1,5 @@
 let data = null
-let departures = 10
+let departures = 8
 
 //construct the ui elements to show the stop information
 window.onload = function(){

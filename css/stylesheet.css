@@ -1,36 +1,58 @@
 body {
   //background-image: url("/img/court-church-5823672_1280.jpg");
-  background-repeat: no-repeat;
   height: 480px;
   width: 800px;
+  background-color:  hsl(193deg 60% 43%);
+  background-repeat: no-repeat;
+
   overflow: hidden;
   margin:0px;
 }
 
-.weatherContainer {
-  width: 300px;
-  height: 480px;
-  position: absolute;
+.clockContainer {
+  width: 280px;
+  height: 120px;
+  position: relative;
   left: 0px;
+  margin: 10px;
+  background-color: rgba(200, 200, 200, 0.6);  
+  border-radius: 10px;
+  backdrop-filter:blur(10px);
+}
+
+.weatherContainer {
+  width: 280px;
+  height: 330px;
+  position: relative;
+  left: 0px;
+  margin: 10px;
+  background-color: rgba(200, 200, 200, 0.6);  
+  border-radius: 10px;
+  backdrop-filter:blur(10px);
 }
 
 
 .departureContainer {
-  width: 500px;
-  height: 480px;
+  width: 490px;
+  height: 460px;
   position: absolute;
-  left: 300px;
-  margin: 0px;
+  top: 0px;
+  left: 290px;
+  margin: 10px;
+  background-color: rgba(200, 200, 200, 0.6);  
+  border-radius: 10px;
+  backdrop-filter:blur(10px);
+  overflow: hidden;
 }
 
 .departure {
   border-bottom: 1px solid red;
-  background-color: rgba(200, 200, 200);  
+  //background-color: rgba(200, 200, 200, 0.6);  
   padding: 0px;
   margin:0px;
   border-radius: 0px;
   position: relative;
-  height:47px;
+  height:57px;
   font-family: sans-serif;
   font-size: 1.0em;
   line-height: 0em;
@@ -40,7 +62,7 @@ body {
   margin: auto;
   width: 100%;
   text-align: center;
-  font-size: 4.0em;
+  font-size: 5.0em;
   font-weight:bold;
   font-family: sans-serif;
 }
@@ -63,35 +85,42 @@ body {
   font-family: sans-serif;
 }
 
+.weatherImg{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 .line {
   position: absolute;
   text-align: left;
-  top: 0px;
-  left: 4px;
+  top: 2px;
+  left: 8px;
   font-weight:bold;
 }
 
 .schedule {
   position: absolute;
   text-align: right;
-  bottom: 0px;
-  right: 4px;
+  bottom: 2px;
+  right: 8px;
   font-size: 0.8em;
 }
 
 .delta {
   position: absolute;
   text-align: right;
-  top: 0px;
-  right: 4px;
+  top: 2px;
+  right: 8px;
   font-weight:bold;
 }
 
 .state {
   position: absolute;
   text-align: left;
-  bottom: 0px;
-  left: 4px;
+  bottom: 2px;
+  left: 8px;
   font-size: 0.8em;
 }
 
