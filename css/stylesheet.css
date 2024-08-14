@@ -1,13 +1,13 @@
 body {
-  //background-image: url("/img/court-church-5823672_1280.jpg");
+	background-image: url('../img/court-church-5823672_1280.jpg');
   height: 480px;
   width: 800px;
-  background-color:  hsl(193deg 60% 43%);
   background-repeat: no-repeat;
-
   overflow: hidden;
   margin:0px;
+  color: white;
 }
+
 
 .clockContainer {
   width: 280px;
@@ -15,9 +15,12 @@ body {
   position: relative;
   left: 0px;
   margin: 10px;
-  background-color: rgba(200, 200, 200, 0.6);  
-  border-radius: 10px;
-  backdrop-filter:blur(10px);
+  background: rgba(255, 255, 255, 0.2);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .weatherContainer {
@@ -26,9 +29,12 @@ body {
   position: relative;
   left: 0px;
   margin: 10px;
-  background-color: rgba(200, 200, 200, 0.6);  
-  border-radius: 10px;
-  backdrop-filter:blur(10px);
+  background: rgba(255, 255, 255, 0.2);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 
@@ -39,14 +45,17 @@ body {
   top: 0px;
   left: 290px;
   margin: 10px;
-  background-color: rgba(200, 200, 200, 0.6);  
-  border-radius: 10px;
-  backdrop-filter:blur(10px);
+  background: rgba(255, 255, 255, 0.2);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
   overflow: hidden;
 }
 
 .departure {
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   //background-color: rgba(200, 200, 200, 0.6);  
   padding: 0px;
   margin:0px;
