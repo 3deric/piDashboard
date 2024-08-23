@@ -60,7 +60,7 @@ window.onload = function(){
 //requests 10 departures
 //shows all transport types
 function updateStation(){
-	console.log("fetching data from web api")
+	//console.log("fetching data from web api")
 	fetch('https://webapi.vvo-online.de/dm', {
 	method: 'POST',
 	headers: {
@@ -82,7 +82,7 @@ function updateStation(){
 	}).then(response => response.json())
 	.then(data => updateDepartures(data))
 	
-	setTimeout(updateStation, 60000);
+	//setTimeout(updateStation, 60000);
 }
 
 //function to update the departure containers
@@ -92,9 +92,9 @@ function updateDepartures(newData){
 
 //updates the viewport every 10 seconds
 function updateTransportViewport(){
-    console.log("updating viewport")
+    //console.log("updating viewport")
 	if(data != null){
-		console.log(new Date())
+		//console.log(new Date())
 		document.getElementById("clock").innerText  = getTime(new Date);
     	for (let i = 0; i < departures; i++){
     		const currentDate = new Date();
@@ -110,7 +110,7 @@ function updateTransportViewport(){
     		document.getElementById(i+"_state").innerText  = getState(state);
     	}
     }
-   	setTimeout(updateTransportViewport, 10000);
+   	//setTimeout(updateTransportViewport, 10000);
 }
 
 function getTime(time) {
@@ -135,6 +135,9 @@ function getState(state)
 
 updateTransportViewport();
 updateStation();
+
+setInterval(updateTransportViewport, 10000);
+setInterval(updateStation, 60000);
 
 //console.log(data)
 //console.log(data.Name)

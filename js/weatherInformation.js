@@ -8,23 +8,23 @@ function loadWeatherIcons(){
 }
 
 function updateWeather(){
-	console.log("fetching data from weather web api")
+	//console.log("fetching data from weather web api")
 	fetch('https://api.open-meteo.com/v1/forecast?latitude=51.0509&longitude=13.7383&current=temperature_2m,relative_humidity_2m,is_day,rain,weather_code,wind_speed_10m,wind_direction_10m&hourly=temperature_2m,rain,weather_code,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,rain_sum&timezone=Europe%2FBerlin', {
 	}).then(response => response.json())
 	.then(data => updateWeatherData(data))
-	setTimeout(updateWeather, 120000);
+	//setTimeout(updateWeather, 120000);
 }
 
 //function to update the departure containers
 function updateWeatherData(newData){
 	weatherData = newData
-    console.log(weatherData)
+    //console.log(weatherData)
 }
 
 //function to update the departure containers
 function updateWeatherIcons(newData){
 	weatherIcons = newData
-    console.log(weatherData)
+    //console.log(weatherData)
 }
 
 
@@ -39,12 +39,8 @@ function updateWeatherViewport(){
 		document.getElementById("humidity").innerText  = weatherData.current.relative_humidity_2m + " % Luftfeuchtigkeit";
     }
 
-   	setTimeout(updateWeatherViewport, 10000);
+   	//setTimeout(updateWeatherViewport, 10000);
 }
-
-loadWeatherIcons()
-updateWeather()
-updateWeatherViewport()
 
 function weatherCondition(wmoCode){
     let condition = null
@@ -63,4 +59,12 @@ function switchWeatherIcon(icon) {
   var pic = document.getElementById('weatherImg');
   pic.src = 'img/weather/' + icon +'d@2x.png';
 }
+
+
+loadWeatherIcons()
+updateWeather()
+updateWeatherViewport()
+
+setInterval(updateWeatherViewport, 10000);
+setInterval(updateWeather, 120000);
 
