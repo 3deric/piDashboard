@@ -17,7 +17,8 @@ function updateWeather(){
 
 //function to update the departure containers
 function updateWeatherData(newData){
-	weatherData = newData
+	weatherData = newData;
+	updateWeatherViewport();
     //console.log(weatherData)
 }
 
@@ -30,7 +31,8 @@ function updateWeatherIcons(newData){
 
 //updates the viewport every 10 seconds
 function updateWeatherViewport(){
-	if(data != null){
+    console.log(data);
+	if(weatherData != null){
 		var image = null
 		if(weatherData.current.is_day == 1){image = weatherIcons[weatherData.current.weather_code].day.image;} else {image = weatherIcons[weatherData.current.weather_code].night.image;}
 		document.getElementById("temperature").innerText  = weatherData.current.temperature_2m + " °C";
@@ -63,8 +65,6 @@ function switchWeatherIcon(icon) {
 
 loadWeatherIcons()
 updateWeather()
-updateWeatherViewport()
-
-setInterval(updateWeatherViewport, 10000);
-setInterval(updateWeather, 120000);
+setInterval(updateWeatherViewport, 600000 );
+setInterval(updateWeather, 1800000 );
 
