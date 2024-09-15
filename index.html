@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/stylesheet.css">
     <script src="js/transportInformation.js"></script>
     <script src="js/weatherInformation.js"></script>
+    <script src="js/calendarInformation.js"></script>
 </head>
  
 <body>
@@ -16,14 +17,16 @@
 	  	<p id = "clock" class = "clock">time</p>
 	  </div>
 	  <div id = "weatherContainer" class = "weatherContainer">
-	    <div id = "tempImage" class = "weatherTempImage">
 	      <p id = "temperature" class = "temperature">temp</p>
 	      <img src='http://openweathermap.org/img/wn/02d@2x.png' id='weatherImg' name='weatherImg' class= 'weatherImg'>
-	    </div>
-	    <p id = "temperatureMinMax" class = "weatherDetail">temp min max</p>
-	    <p id = "humidity" class = "weatherDetail">humidity</p>
+	      <div class="weatherDetail">
+	        <p id = "temperatureMinMax">temp min max</p>
+	        <p id = "humidity">humidity</p>
+	      </div>
 	  </div>
     <div id = "departureContainer" class = "departureContainer">
+    </div>
+    <div id = "calendarContainer" class = "calendarContainer">
     </div>
 	</div>
 </body>

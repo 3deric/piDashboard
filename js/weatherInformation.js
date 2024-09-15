@@ -35,27 +35,14 @@ function updateWeatherViewport(){
 	if(weatherData != null){
 		var image = null
 		if(weatherData.current.is_day == 1){image = weatherIcons[weatherData.current.weather_code].day.image;} else {image = weatherIcons[weatherData.current.weather_code].night.image;}
-		document.getElementById("temperature").innerText  = weatherData.current.temperature_2m + " °C";
+		document.getElementById("temperature").innerText  = Math.round(weatherData.current.temperature_2m) + " °C";
 		document.getElementById('weatherImg').src = image
-		document.getElementById("temperatureMinMax").innerText  = weatherData.daily.temperature_2m_min[0] + " °C bis " + weatherData.daily.temperature_2m_max[0] + " °C";
+		document.getElementById("temperatureMinMax").innerText  = Math.round(weatherData.daily.temperature_2m_min[0]) + " °C bis " + Math.round(weatherData.daily.temperature_2m_max[0]) + " °C";
 		document.getElementById("humidity").innerText  = weatherData.current.relative_humidity_2m + " % Luftfeuchtigkeit";
     }
 
    	//setTimeout(updateWeatherViewport, 10000);
 }
-
-function weatherCondition(wmoCode){
-    let condition = null
-    console.log(wmoCode)
-    switch(wmoCode){
-        case 0: condition = '00'; break;
-        case 1: condition = '01'; break;
-        case 3: condition = '03'; break;
-        case 10: condition = '01'; break;
-    }
-    return condition
-}
-
 
 function switchWeatherIcon(icon) {
   var pic = document.getElementById('weatherImg');
