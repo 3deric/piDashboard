@@ -1,5 +1,5 @@
 let data = null
-let departures = 8
+let departures = 5
 
 //construct the ui elements to show the stop information
 window.onload = function(){
@@ -27,15 +27,7 @@ window.onload = function(){
 		pDir.appendChild(tDir);
 		container.appendChild(pDir);
 		*/
-		
-		//scheduled time
-		const pSchd = document.createElement("p");
-		pSchd.id = i+"_schd";
-		pSchd.classList.add("schedule");
-		const tSchd = document.createTextNode("Schd");
-		pSchd.appendChild(tSchd);
-		container.appendChild(pSchd);
-		
+			
 		//delta time
 	    const pDelta = document.createElement("p");
 		pDelta.id = i+"_delta";
@@ -43,7 +35,7 @@ window.onload = function(){
 		const tDelta = document.createTextNode("Delta");
 		pDelta.appendChild(tDelta);
 		container.appendChild(pDelta);
-				
+		
 		//state
 	    const pState = document.createElement("p");
 		pState.id = i+"_state";
@@ -51,9 +43,17 @@ window.onload = function(){
 		const tState = document.createTextNode("State");
 		pState.appendChild(tState);
 		container.appendChild(pState);
+		
+		//scheduled time
+		const pSchd = document.createElement("p");
+		pSchd.id = i+"_schd";
+		pSchd.classList.add("schedule");
+		const tSchd = document.createTextNode("Schd");
+		pSchd.appendChild(tSchd);
+		container.appendChild(pSchd);	
 	}
 	
-	for (let i = 0; i < 8; i++){
+	for (let i = 0; i < 2; i++){
 	    //generate container for all shown departures
 	    const container = document.createElement("div");
 	    container.id = i;
@@ -118,10 +118,11 @@ function updateDepartures(newData){
 
 //updates the viewport every 10 seconds
 function updateTransportViewport(){
-    //console.log("updating viewport")
 	if(data != null){
-		//console.log(new Date())
-		document.getElementById("clock").innerText  = getTime(new Date);
+	    var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+	    var date = new Date;
+		document.getElementById("clock").innerText  = getTime(date);
+		document.getElementById("date").innerText = date.toLocaleDateString("de-DE", options);
     	for (let i = 0; i < departures; i++){
     		const currentDate = new Date();
     		const date = new Date(parseInt(data.Departures[i].ScheduledTime.substr(6)));
@@ -159,18 +160,7 @@ function getState(state)
 }
 
 
-updateTransportViewport();
 updateStation();
-
+updateTransportViewport();
 setInterval(updateTransportViewport, 10000);
 setInterval(updateStation, 60000);
-
-//console.log(data)
-//console.log(data.Name)
-//console.log(data.Departures[0].LineName)
-//console.log(data.Departures[0].State)
-//console.log(data.Departures[0].ScheduledTime)
-//console.log(data.Departures[0].Platform.Name)
-//console.log(data.Departures[0].Direction)
-
-

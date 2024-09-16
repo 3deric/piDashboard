@@ -13,20 +13,46 @@
  
 <body>
 	<div class ="wrapper">
-	  <div id = "clockContainer" class = "clockContainer">
-	  	<p id = "clock" class = "clock">time</p>
+	  <div class ="wrapperLeft">
+	    <div id = "clockContainer" class = "clockContainer">
+	    	<p id = "clock" class = "clock">time</p>
+	    	<p id = "date" class = "date">date</p>
+	    </div>
+	    <div id = "weatherContainer" class = "weatherContainer">
+	        <div class ="weatherMain">
+	          <p id = "temperature" class = "temperature">temp</p>
+	          <img src='http://openweathermap.org/img/wn/02d@2x.png' id='weatherImg' name='weatherImg' class= 'weatherImg'>
+	        </div>
+	        <div class="weatherDetail">
+	          <p id = "temperatureMinMax" align = "left">temp min max</p>
+	          <p id = "humidity" align = "right">humidity</p>
+	        </div>
+	        <div class="weatherForecast">
+	          <div class="forecastElement">
+	            <p id = 'forecastDay0' class = 'forecastDay'>Mo</p>
+	            <img src='http://openweathermap.org/img/wn/02d@2x.png' id='weatherImg0' name='forecastImg0' class= 'weatherImgForecast'>
+	            <p id ='forecast0' class = 'forecast'>-35<br>bis<br>35 °C</p>
+	          </div>
+	          <div class="forecastSeperator"></div>
+	          <div class="forecastElement">
+	            <p id = 'forecastDay1' class = 'forecastDay'>Di</p>
+	            <img src='http://openweathermap.org/img/wn/02d@2x.png' id='weatherImg1' name='forecastImg1' class= 'weatherImgForecast'>
+	            <p id ='forecast1' class = 'forecast'>-35<br>bis<br>35 °C</p>
+	          </div>
+	          <div class="forecastSeperator"></div>
+	          <div class="forecastElement">
+	            <p id = 'forecastDay2' class = 'forecastDay'>Mi</p>
+	            <img src='http://openweathermap.org/img/wn/02d@2x.png' id='weatherImg2' name='forecastImg2' class= 'weatherImgForecast'>
+	            <p id ='forecast2' class = 'forecast'>-35<br>bis<br>35 °C</p>
+	          </div>
+	        </div>
+	    </div>
 	  </div>
-	  <div id = "weatherContainer" class = "weatherContainer">
-	      <p id = "temperature" class = "temperature">temp</p>
-	      <img src='http://openweathermap.org/img/wn/02d@2x.png' id='weatherImg' name='weatherImg' class= 'weatherImg'>
-	      <div class="weatherDetail">
-	        <p id = "temperatureMinMax">temp min max</p>
-	        <p id = "humidity">humidity</p>
-	      </div>
-	  </div>
-    <div id = "departureContainer" class = "departureContainer">
-    </div>
-    <div id = "calendarContainer" class = "calendarContainer">
+	  <div class ="wrapperRight">
+      <div id = "departureContainer" class = "departureContainer">
+      </div>
+      <div id = "calendarContainer" class = "calendarContainer">
+      </div>
     </div>
 	</div>
 </body>
