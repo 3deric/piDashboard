@@ -1,5 +1,6 @@
 let weatherData = null
 let weatherIcons = null
+let options = { weekday: 'long' };
 
 function loadWeatherIcons(){
     fetch('https://gist.githubusercontent.com/stellasphere/9490c195ed2b53c707087c8c2db4ec0c/raw/76b0cb0ef0bfd8a2ec988aa54e30ecd1b483495d/descriptions.json', {
@@ -24,38 +25,60 @@ function updateWeatherData(newData){
 
 //function to update the departure containers
 function updateWeatherIcons(newData){
-	weatherIcons = newData
+	weatherIcons = newData;
     //console.log(weatherData)
 }
 
 
 //updates the viewport every 10 seconds
 function updateWeatherViewport(){
-    console.log(data);
-	if(weatherData != null){
-		var image = null
-		if(weatherData.current.is_day == 1){image = weatherIcons[weatherData.current.weather_code].day.image;} else {image = weatherIcons[weatherData.current.weather_code].night.image;}
-		document.getElementById("temperature").innerText  = weatherData.current.temperature_2m + " °C";
-		document.getElementById('weatherImg').src = image
-		document.getElementById("temperatureMinMax").innerText  = weatherData.daily.temperature_2m_min[0] + " °C bis " + weatherData.daily.temperature_2m_max[0] + " °C";
-		document.getElementById("humidity").innerText  = weatherData.current.relative_humidity_2m + " % Luftfeuchtigkeit";
+    //console.log(weatherData);
+    if(weatherIcons == null){
+        return;
     }
+    
+    if(weatherData == null){
+        return;
+    }
+		var image = null;
+		var imageDay1 = null;
+		var imageDay2 = null;
+		var imageDay3 = null;
+		if(weatherData.current.is_day == 1){
+		    image = weatherIcons[weatherData.current.weather_code].day.image;
+		    imageDay1 = weatherIcons[weatherData.daily.weather_code[1]].day.image;
+		    imageDay2 = weatherIcons[weatherData.daily.weather_code[2]].day.image;
+		    imageDay3 = weatherIcons[weatherData.daily.weather_code[3]].day.image;
+		} 
+		else {
+		    image = weatherIcons[weatherData.current.weather_code].night.image;
+		    imageDay1 = weatherIcons[weatherData.daily.weather_code[1]].night.image;
+		  	imageDay2 = weatherIcons[weatherData.daily.weather_code[2]].night.image;
+		    imageDay3 = weatherIcons[weatherData.daily.weather_code[3]].night.image;
+		}
+		document.getElementById("temperature").innerText  = Math.round(weatherData.current.temperature_2m) + " °C";
+		document.getElementById('weatherImg').src = image
+		var date1 = new Date(weatherData.daily.time[1]);
+		var date2 = new Date(weatherData.daily.time[2]);
+		var date3 = new Date(weatherData.daily.time[3]);
+		date1 = date1.toLocaleDateString("de-DE", options).substring(0,2);
+		date2 = date2.toLocaleDateString("de-DE", options).substring(0,2);
+		date3 = date3.toLocaleDateString("de-DE", options).substring(0,2);
+		document.getElementById('forecastDay0').innerText = date1;
+		document.getElementById('forecastDay1').innerText = date2;
+		document.getElementById('forecastDay2').innerText = date3;
+		document.getElementById('weatherImg0').src = imageDay1;
+		document.getElementById('weatherImg1').src = imageDay2;
+		document.getElementById('weatherImg2').src = imageDay3;
+		document.getElementById("temperatureMinMax").innerText  = Math.round(weatherData.daily.temperature_2m_min[0]) + " °C bis " + Math.round(weatherData.daily.temperature_2m_max[0]) + " °C";
+		document.getElementById("humidity").innerText  = weatherData.current.relative_humidity_2m + " % rF";
+		document.getElementById('forecast0').innerText = weatherData.daily.temperature_2m_min[1] + " °C\nbis\n" + weatherData.daily.temperature_2m_max[1] + " °C";
+		document.getElementById('forecast1').innerText = weatherData.daily.temperature_2m_min[2] + " °C\nbis\n" + weatherData.daily.temperature_2m_max[2] + " °C";
+		document.getElementById('forecast2').innerText = weatherData.daily.temperature_2m_min[3] + " °C\nbis\n" + weatherData.daily.temperature_2m_max[3] + " °C";
+    
 
    	//setTimeout(updateWeatherViewport, 10000);
 }
-
-function weatherCondition(wmoCode){
-    let condition = null
-    console.log(wmoCode)
-    switch(wmoCode){
-        case 0: condition = '00'; break;
-        case 1: condition = '01'; break;
-        case 3: condition = '03'; break;
-        case 10: condition = '01'; break;
-    }
-    return condition
-}
-
 
 function switchWeatherIcon(icon) {
   var pic = document.getElementById('weatherImg');
@@ -65,6 +88,6 @@ function switchWeatherIcon(icon) {
 
 loadWeatherIcons()
 updateWeather()
-setInterval(updateWeatherViewport, 600000 );
-setInterval(updateWeather, 1800000 );
+setInterval(updateWeatherViewport, 10000 );
+//setInterval(updateWeather, 1800000 );
 

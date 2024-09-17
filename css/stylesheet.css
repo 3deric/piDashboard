@@ -1,30 +1,39 @@
 body {
-  height: 480px;
-  width: 800px;
-  background-repeat: no-repeat;
   overflow: hidden;
   margin:0px;
+  font-family: sans-serif;
 }
 
 .wrapper{
   position: absolute;
   overflow: hidden;
   margin: 0px;
+  padding:0px;
   height: 480px;
   width: 800px;
   background: linear-gradient(45deg, hsl(195, 63%, 63%), hsl(150, 63%, 20%));
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px; 
 }
 
+.wrapperLeft{
+  display: grid;
+}
+
+.wrapperRight{
+  display:grid;
+}
 
 .clockContainer {
-	display: flex;
-	flex-direction: column;
-  width: 280px;
-  position: relative;
-  left: 0px;
-  margin: 15px;
+  height:145px;
+  margin:10px;
+  margin-bottom:5px;
+  margin-right:5px;
   background: rgba(255, 255, 255, 0.25);
-	border-radius: 16px;
+	border-radius: 10px;
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 	backdrop-filter: blur(15px);
 	-webkit-backdrop-filter: blur(15px);
@@ -32,40 +41,175 @@ body {
 	color: white;
 }
 
-.weatherContainer {
-  display: flex;
-  flex-direction: column;
-  width: 280px;
-  position: relative;
-  left: 0px;
-  margin: 15px;
+.weatherContainer {  
+  height: 300px;
+  margin:10px;
+  margin-top:5px;
+  margin-right:5px;
   background: rgba(255, 255, 255, 0.25);
-	border-radius: 16px;
+	border-radius: 10px;
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 	backdrop-filter: blur(15px);
 	-webkit-backdrop-filter: blur(15px);
 	border: 1px solid rgba(255, 255, 255, 0.3);
 	color: white;
+	display:flex;
+	flex-direction: column;
+	justify-content: start;
+}
+
+.weatherMain{
+  height:80px;
+  width:100 %;
+  //background:red;
+  display: flex; /* Enable flexbox layout */
+  justify-content: space-between;
 }
 
 .weatherTempImage{
-  display: flex;
-  flex-direction: row;
-  margin: 0px;
   overflow: hidden;
+}
+
+.temperature{
+  margin: 10px;
+  font-size: 3em;
+  line-height:1.5em;
+  font-weight:bold;
+  font-family: sans-serif;
+}
+
+.weatherDetail{
+  margin: 0px;
+  padding: 0px;
+  font-size: 1.0em;
+  line-height:1.0em;
+  font-weight:normal;
+  font-family: sans-serif;
+  display: flex; /* Enable flexbox layout */
+  justify-content: space-between;
+  //background:black;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.weatherDetail p { 
+  margin:10px;
+}
+
+.weatherForecast{
+ height:185px;
+ //background:green;
+ display:flex;
+ justify-content: space-evenly;
+}
+
+.forecast{
+  margin:auto;
+  margin-top:10px;
+  text-align:center;
+  line-height: 1.75em;
+}
+
+.forecastDay{
+  margin:auto;
+  margin-top:10px;
+  font-weight:bold;
+  text-align:center;
+}
+
+.forecastSeperator{
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.weatherImg{
+  margin-right:20px;
+  margin-top:15px;
+  transform: scale(2.0);
+}
+
+.weatherImgForecast{
+  margin:auto;
+  display:block;
+  width:40px;
+  margin-left:7px;
+  margin-top:5px;
+  transform: scale(1.5)
+}
+
+.calendarContainer {
+  margin: 10px;
+  height:98px;
+  margin-top:5px;
+  margin-left: 5px;
+  background: rgba(255, 255, 255, 0.25);
+	border-radius: 10px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(15px);
+	-webkit-backdrop-filter: blur(15px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+  color: white;
+}
+
+
+.calendar {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0px;
+  margin:0px;
+  border-radius: 0px;
+  height:50px;
+  display:flex;
+	flex-direction: row;
+	justify-content:space-between;
+}
+
+.calendarDes{
+  margin-left:10px;
+  font-size: 1.0em;
+  line-height: 1.0em;
+  font-weight:bold;
+}
+
+.calendarDate{
+  margin-right:10px;
+  font-size: 1.0em;
+  line-height: 1.0em;
+}
+
+.clock{
+  margin: 10px;
+  width: 260px;
+  text-align: center;
+  font-size: 5.5em;
+  line-height: 1.0em;
+  font-weight:bold;
+  font-family: sans-serif;
+}
+
+.date{
+  margin: 10px;
+  margin-top:0px;
+  text-align:center;
+  font-size: 1.0em;
+  font-weight: normal;
+  line-height: 1.0em;
+  font-family: sans-serif;
 }
 
 
 .departureContainer {
-  display:flex;
-  flex-direction:column;
-  width: 460px;
-  position: absolute;
-  top: 0px;
-  left: 300px;
-  margin: 15px;
+  margin:10px;
+  height:348px;
+  margin-left:5px;
+  margin-bottom:5px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 3fr;
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px; 
+ align-items: stretch;
   background: rgba(255, 255, 255, 0.25);
-	border-radius: 16px;
+	border-radius: 10px;
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 	backdrop-filter: blur(15px);
 	-webkit-backdrop-filter: blur(15px);
@@ -77,84 +221,58 @@ body {
 .departure {
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   padding: 0px;
+  height:70px;
   margin:0px;
-  border-radius: 0px;
-  position: relative;
-  height:55px;
-  font-family: sans-serif;
-  font-size: 1.0em;
-  line-height: 0em;
-}
-
-.clock{
-  margin: auto;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  font-size: 6.0em;
-  font-weight:bold;
-  font-family: sans-serif;
-}
-
-.temperature{
-  margin: 10px;
-  width: 100%;
-  text-align: left;
-  font-size: 3.0em;
-  font-weight:normal;
-  font-family: sans-serif;
-}
-
-.weatherDetail{
-  margin-left: 10px;
-  margin-top: 0px;
-  margin-bottom: 10px;
-  width: 100%;
-  text-align: left;
-  font-size: 1.0em;
-  font-weight:bold;
-  font-family: sans-serif;
-}
-
-.weatherImg{
-  display: block;
-  margin: 10px;
-  width: 75px;
-  height: 75px;
-  object-fit: contain;
-  transform: scale(1.5);
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px; 
 }
 
 .line {
-  position: absolute;
-  text-align: left;
-  top: 2px;
-  left: 10px;
+  grid-area: 1 / 1 / 2 / 2;
+  line-height:1.0em;
   font-weight:bold;
-}
-
-.schedule {
-  position: absolute;
-  text-align: right;
-  bottom: 2px;
-  right: 10px;
-  font-size: 0.8em;
+  margin:0px;
+  margin-top:10px;
+  margin-left:10px;
 }
 
 .delta {
-  position: absolute;
-  text-align: right;
-  top: 2px;
-  right: 10px;
-  font-weight:bold;
+ grid-area: 1 / 2 / 2 / 3; 
+ line-height:1.0em;
+ text-align:right;
+ font-weight:bold;
+ margin:0px;
+ margin-top:10px;
+ margin-right:10px;
 }
 
 .state {
-  position: absolute;
-  text-align: left;
-  bottom: 2px;
-  left: 10px;
-  font-size: 0.8em;
+ grid-area: 2 / 1 / 3 / 2; 
+ line-height:1.0em;
+ margin:0px;
+ margin-left:10px;
 }
 
+.schedule {
+ grid-area: 2 / 2 / 3 / 3; 
+ line-height:1.0em;
+ text-align:right;
+ margin:0px;
+ margin-right:10px;
+}
+
+
+
+
+
+
+  //position: absolute;
+  //text-align: left;
+  //top: 2px;
+  //left: 10px;
+  //font-weight:bold;
+  //line-height: 0em;
 
