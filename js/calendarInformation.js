@@ -28,7 +28,7 @@ function loadCalendar(){
     .then((res) => res.text())
     .then((text) => {
         calendarEvents = parseICS(text);
-        logCalendar(calendarEvents);
+        //logCalendar(calendarEvents);
     })
     .catch((e) => console.error(e));
 }

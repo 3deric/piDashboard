@@ -33,7 +33,13 @@ function updateWeatherIcons(newData){
 //updates the viewport every 10 seconds
 function updateWeatherViewport(){
     //console.log(weatherData);
-	if(weatherData != null){
+    if(weatherIcons == null){
+        return;
+    }
+    
+    if(weatherData == null){
+        return;
+    }
 		var image = null;
 		var imageDay1 = null;
 		var imageDay2 = null;
@@ -69,7 +75,7 @@ function updateWeatherViewport(){
 		document.getElementById('forecast0').innerText = weatherData.daily.temperature_2m_min[1] + " °C\nbis\n" + weatherData.daily.temperature_2m_max[1] + " °C";
 		document.getElementById('forecast1').innerText = weatherData.daily.temperature_2m_min[2] + " °C\nbis\n" + weatherData.daily.temperature_2m_max[2] + " °C";
 		document.getElementById('forecast2').innerText = weatherData.daily.temperature_2m_min[3] + " °C\nbis\n" + weatherData.daily.temperature_2m_max[3] + " °C";
-    }
+    
 
    	//setTimeout(updateWeatherViewport, 10000);
 }
