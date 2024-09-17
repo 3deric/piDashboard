@@ -80,7 +80,6 @@ body {
 
 .weatherDetail{
   margin: 0px;
-  margin-bottom:5px;
   padding: 0px;
   font-size: 1.0em;
   line-height:1.0em;
@@ -104,13 +103,14 @@ body {
 }
 
 .forecast{
-  margin:0px;
+  margin:auto;
   margin-top:10px;
   text-align:center;
+  line-height: 1.75em;
 }
 
 .forecastDay{
-  margin:0px;
+  margin:auto;
   margin-top:10px;
   font-weight:bold;
   text-align:center;
@@ -122,13 +122,15 @@ body {
 
 .weatherImg{
   margin:0px;
-  transform: scale(1.5);
+  margin-top:10px;
+  margin-right:10px;
+  transform: scale(1.75);
 }
 
 .weatherImgForecast{
   width:40px;
+  margin-left:7px;
   margin-top:5px;
-  text-align:center;
   transform: scale(2.0)
 }
 
