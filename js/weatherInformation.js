@@ -89,5 +89,5 @@ function switchWeatherIcon(icon) {
 loadWeatherIcons()
 updateWeather()
 setInterval(updateWeatherViewport, 10000 );
-//setInterval(updateWeather, 1800000 );
+setInterval(updateWeather, 1800000 );
 
