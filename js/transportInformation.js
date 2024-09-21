@@ -1,7 +1,9 @@
-let data = null
-let departures = 5
+let data = null;
+let departures = 5;
+let calendar = 2;
 
-//construct the ui elements to show the stop information
+//construct the ui elements to show the stop and calendar information, 
+//this needs to be put into a seperate function when refactoring
 window.onload = function(){
 	for (let i = 0; i < departures; i++){
 	    //generate container for all shown departures
@@ -51,32 +53,6 @@ window.onload = function(){
 		const tSchd = document.createTextNode("Schd");
 		pSchd.appendChild(tSchd);
 		container.appendChild(pSchd);	
-	}
-	
-	for (let i = 0; i < 2; i++){
-	    //generate container for all shown departures
-	    const container = document.createElement("div");
-	    container.id = i;
-	    container.classList.add("calendar");
-	    const containerParent = document.getElementById("calendarContainer");
-	    containerParent.appendChild(container);
-	    
-	    //assign text paragraphs for all departures
-	    //line ID
-		const pLine = document.createElement("p");
-		pLine.id = i+"_desc";
-		pLine.classList.add("calendarDes");
-		const tLine = document.createTextNode("CalendarDesc");
-		pLine.appendChild(tLine);
-		container.appendChild(pLine);
-
-		//state
-	    const pState = document.createElement("p");
-		pState.id = i+"_date";
-		pState.classList.add("calendarDate");
-		const tState = document.createTextNode("CalendarDate");
-		pState.appendChild(tState);
-		container.appendChild(pState);
 	}
 }
 
