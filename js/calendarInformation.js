@@ -24,12 +24,11 @@ function parseICS(icsString) {
     }
 
 function loadCalendar(){
-    fetch('js/calendar.ics')
+    fetch('cal/cal.ics')
     .then((res) => res.text())
     .then((text) => {
         calendarEvents = parseICS(text);
         updateCalendarViewport();
-        //logCalendar(calendarEvents);
     })
     .catch((e) => console.error(e));
 }
@@ -39,19 +38,17 @@ function logCalendar(events){
         var eventDate = event['DTSTAMP'];
         var eventDesc = event['DESCRIPTION'];
         eventDate = new Date(eventDate.substring(0,4), eventDate.substring(4,6) -1, eventDate.substring(6,8), 0, 0, 0, 0);
-        console.log(eventDate);
-        console.log(eventDate.getTime());
-        console.log(eventDesc);
     }
     updateCalendarViewport();
 }
 
-//updates the viewport every 10 seconds
+//updates the viewport
+//could be replaced with a while loop
 function updateCalendarViewport(){
     var calendarOptions = { day: 'numeric', year: 'numeric', month: 'numeric', day: 'numeric' };
-	if(calendarEvents != null){
-	    for (let i = 0; i < calendarEvents.length -1; i++){
-	        console.log(calendarEvents[i]);
+	if(calendarEvents != null)
+	{
+	  for (let i = 0; i < calendarEvents.length -1; i++){
 	        var eventDate0 =  calendarEvents[i]['DTSTAMP'].toString();
 	        var eventDate1 =  calendarEvents[i+1]['DTSTAMP'].toString();
 	        var eventDesc0 = calendarEvents[i]['SUMMARY'];
@@ -63,17 +60,19 @@ function updateCalendarViewport(){
 	    	    document.getElementById("0_date").innerText = eventDate0.toLocaleDateString("de-DE", calendarOptions);   
 	    	    document.getElementById("1_desc").innerText = eventDesc1;
 	    	    document.getElementById("1_date").innerText = eventDate1.toLocaleDateString("de-DE", calendarOptions);   
-	            break;
-	         
+	            break;         
 	        }
-	    
-	    }	       
-    }
+	        else{
+	            document.getElementById("0_desc").innerText = 'Keine Termine'
+	            document.getElementById("0_date").innerText = 'Keine Daten'
+	            document.getElementById("1_desc").innerText = 'Keine Termine'
+	            document.getElementById("1_date").innerText = 'Keine Daten'
+	        }
+	    }
+    }   
 }
 
 loadCalendar()
-
-//eventDate.toLocaleDateString("de-DE", calendarOptions);   
 
 function compareDate(date) {
     if(date < new Date()){
